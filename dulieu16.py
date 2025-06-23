@@ -97,7 +97,7 @@ class Bot(ZaloAPI):
                         response = remaining_lines.pop()
                         message_to_send = response.replace("{user}", username_for_replace)
                         mention_text = f"@1"
-                        final_message = f"{message_to_send} =)) {mention_text}"
+                        final_message = f"{message_to_send} {mention_text}"
                         offset = final_message.index(mention_text)
                         mention = Mention(uid=mentioned_user_id, offset=offset, length=len(mention_text))
                         msg = Message(text=final_message, mention=mention)
