@@ -101,6 +101,8 @@ class Bot(ZaloAPI):
                         offset = final_message.index(mention_text)
                         mention = Mention(uid=mentioned_user_id, offset=offset, length=len(mention_text))
                         msg = Message(text=final_message, mention=mention)
+                        self.setTyping(thread_id, ThreadType.GROUP)
+                        time.sleep(1.5)
                         self.send(msg, thread_id=thread_id, thread_type=ThreadType.GROUP)
                         print(f"✅ Đã gửi: {final_message}")
                         time.sleep(delay)
